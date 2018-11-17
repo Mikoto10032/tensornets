@@ -128,7 +128,8 @@ Besides `pretrained()` and `preprocess()`, the output `tf.Tensor` provides the f
 - `print_summary()`: prints the numbers of layers, weight matrices, and parameters.
 
 
-Example outputs of print methods are:
+<details>
+<summary>Example outputs of print methods are:</summary>
 
 ```
 >>> model.print_middles()
@@ -178,6 +179,7 @@ Total layers: 54
 Total weights: 320
 Total parameters: 25,636,712
 ```
+</details>
 
 ## Examples
 
@@ -213,7 +215,7 @@ train = tf.train.AdamOptimizer(learning_rate=1e-5).minimize(loss)
 
 with tf.Session() as sess:
     nets.pretrained(model)
-    # for (x, y) in your NumPy data (the NHWC and one-hot format):
+    for (x, y) in your_NumPy_data:  # the NHWC and one-hot format
         sess.run(train, {inputs: x, outputs: y})
 ```
 
@@ -258,9 +260,9 @@ with tf.Session() as sess:
 | [ResNet50](tensornets/resnets.py#L85)             | 25.126      | 7.982       | 6.842       | 25.6M  | 23.6M  | 195.4 | [[paper]](https://arxiv.org/abs/1512.03385) [[tf-slim]](https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v1.py) [[torch-fb]](https://github.com/facebook/fb.resnet.torch/blob/master/models/resnet.lua) <br /> [[caffe]](https://github.com/KaimingHe/deep-residual-networks/blob/master/prototxt/ResNet-50-deploy.prototxt) [[keras]](https://github.com/keras-team/keras/blob/master/keras/applications/resnet50.py) |
 | [ResNet101](tensornets/resnets.py#L113)           | 23.580      | 7.214       | 6.092       | 44.7M  | 42.7M  | 311.7 | [[paper]](https://arxiv.org/abs/1512.03385) [[tf-slim]](https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v1.py) [[torch-fb]](https://github.com/facebook/fb.resnet.torch/blob/master/models/resnet.lua) <br /> [[caffe]](https://github.com/KaimingHe/deep-residual-networks/blob/master/prototxt/ResNet-101-deploy.prototxt) |
 | [ResNet152](tensornets/resnets.py#L141)           | 23.396      | 6.882       | 5.908       | 60.4M  | 58.4M  | 439.1 | [[paper]](https://arxiv.org/abs/1512.03385) [[tf-slim]](https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v1.py) [[torch-fb]](https://github.com/facebook/fb.resnet.torch/blob/master/models/resnet.lua) <br /> [[caffe]](https://github.com/KaimingHe/deep-residual-networks/blob/master/prototxt/ResNet-152-deploy.prototxt) |
-| [ResNet50v2](tensornets/resnets.py#L98)           | 24.526      | 7.252       | 6.012       | 25.6M  | 23.6M  | 209.7 | [[paper]](https://arxiv.org/abs/1603.05027) [[tf-slim]](https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v2.py) [[torch-fb]](https://github.com/facebook/fb.resnet.torch/blob/master/models/preresnet.lua) |
-| [ResNet101v2](tensornets/resnets.py#L126)         | 23.116      | 6.488       | 5.230       | 44.7M  | 42.6M  | 326.2 | [[paper]](https://arxiv.org/abs/1603.05027) [[tf-slim]](https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v2.py) [[torch-fb]](https://github.com/facebook/fb.resnet.torch/blob/master/models/preresnet.lua) |
-| [ResNet152v2](tensornets/resnets.py#L154)         | 22.236      | 6.080       | 4.960       | 60.4M  | 58.3M  | 455.2 | [[paper]](https://arxiv.org/abs/1603.05027) [[tf-slim]](https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v2.py) [[torch-fb]](https://github.com/facebook/fb.resnet.torch/blob/master/models/preresnet.lua) |
+| [ResNet50v2](tensornets/resnets.py#L98)           | 24.040      | 6.966       | 5.896       | 25.6M  | 23.6M  | 209.7 | [[paper]](https://arxiv.org/abs/1603.05027) [[tf-slim]](https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v2.py) [[torch-fb]](https://github.com/facebook/fb.resnet.torch/blob/master/models/preresnet.lua) |
+| [ResNet101v2](tensornets/resnets.py#L126)         | 22.766      | 6.184       | 5.158       | 44.7M  | 42.6M  | 326.2 | [[paper]](https://arxiv.org/abs/1603.05027) [[tf-slim]](https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v2.py) [[torch-fb]](https://github.com/facebook/fb.resnet.torch/blob/master/models/preresnet.lua) |
+| [ResNet152v2](tensornets/resnets.py#L154)         | 21.968      | 5.838       | 4.900       | 60.4M  | 58.3M  | 455.2 | [[paper]](https://arxiv.org/abs/1603.05027) [[tf-slim]](https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v2.py) [[torch-fb]](https://github.com/facebook/fb.resnet.torch/blob/master/models/preresnet.lua) |
 | [ResNet200v2](tensornets/resnets.py#L169)         | 21.714      | 5.848       | 4.830       | 64.9M  | 62.9M  | 618.3 | [[paper]](https://arxiv.org/abs/1603.05027) [[tf-slim]](https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v2.py) [[torch-fb]](https://github.com/facebook/fb.resnet.torch/blob/master/models/preresnet.lua) |
 | [ResNeXt50c32](tensornets/resnets.py#L184)        | 22.260      | 6.190       | 5.410       | 25.1M  | 23.0M  | 267.4 | [[paper]](https://arxiv.org/abs/1611.05431) [[torch-fb]](https://github.com/facebookresearch/ResNeXt/blob/master/models/resnext.lua) |
 | [ResNeXt101c32](tensornets/resnets.py#L200)       | 21.270      | 5.706       | 4.842       | 44.3M  | 42.3M  | 427.9 | [[paper]](https://arxiv.org/abs/1611.05431) [[torch-fb]](https://github.com/facebookresearch/ResNeXt/blob/master/models/resnext.lua) |
@@ -276,9 +278,9 @@ with tf.Session() as sess:
 | [PNASNetlarge](tensornets/nasnets.py#L150)        | 17.366      | 3.950       | 3.358       | 86.2M  | 81.9M  | 1978  | [[paper]](https://arxiv.org/abs/1712.00559) [[tf-slim]](https://github.com/tensorflow/models/tree/master/research/slim/nets/nasnet) |
 | [VGG16](tensornets/vggs.py#L71)                   | 28.732      | 9.950       | 8.834       | 138.4M | 14.7M  | 348.4 | [[paper]](https://arxiv.org/abs/1409.1556) [[keras]](https://github.com/keras-team/keras/blob/master/keras/applications/vgg16.py) |
 | [VGG19](tensornets/vggs.py#L78)                   | 28.744      | 10.012      | 8.774       | 143.7M | 20.0M  | 399.8 | [[paper]](https://arxiv.org/abs/1409.1556) [[keras]](https://github.com/keras-team/keras/blob/master/keras/applications/vgg19.py) |
-| [DenseNet121](tensornets/densenets.py#L63)        | 25.480      | 8.022       | 6.842       | 8.1M   | 7.0M   | 202.9 | [[paper]](https://arxiv.org/abs/1608.06993) [[torch]](https://github.com/liuzhuang13/DenseNet/blob/master/models/densenet.lua) |
-| [DenseNet169](tensornets/densenets.py#L71)        | 23.926      | 6.892       | 6.140       | 14.3M  | 12.6M  | 219.1 | [[paper]](https://arxiv.org/abs/1608.06993) [[torch]](https://github.com/liuzhuang13/DenseNet/blob/master/models/densenet.lua) |
-| [DenseNet201](tensornets/densenets.py#L79)        | 22.936      | 6.542       | 5.724       | 20.2M  | 18.3M  | 272.0 | [[paper]](https://arxiv.org/abs/1608.06993) [[torch]](https://github.com/liuzhuang13/DenseNet/blob/master/models/densenet.lua) |
+| [DenseNet121](tensornets/densenets.py#L64)        | 25.028      | 7.742       | 6.522       | 8.1M   | 7.0M   | 202.9 | [[paper]](https://arxiv.org/abs/1608.06993) [[torch]](https://github.com/liuzhuang13/DenseNet/blob/master/models/densenet.lua) |
+| [DenseNet169](tensornets/densenets.py#L72)        | 23.824      | 6.824       | 5.860       | 14.3M  | 12.6M  | 219.1 | [[paper]](https://arxiv.org/abs/1608.06993) [[torch]](https://github.com/liuzhuang13/DenseNet/blob/master/models/densenet.lua) |
+| [DenseNet201](tensornets/densenets.py#L80)        | 22.680      | 6.380       | 5.466       | 20.2M  | 18.3M  | 272.0 | [[paper]](https://arxiv.org/abs/1608.06993) [[torch]](https://github.com/liuzhuang13/DenseNet/blob/master/models/densenet.lua) |
 | [MobileNet25](tensornets/mobilenets.py#L156)      | 48.418      | 24.208      | 21.196      | 0.5M   | 0.2M   | 34.46 | [[paper]](https://arxiv.org/abs/1704.04861) [[tf-slim]](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.py) |
 | [MobileNet50](tensornets/mobilenets.py#L163)      | 35.708      | 14.376      | 12.180      | 1.3M   | 0.8M   | 52.46 | [[paper]](https://arxiv.org/abs/1704.04861) [[tf-slim]](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.py) |
 | [MobileNet75](tensornets/mobilenets.py#L170)      | 31.588      | 11.758      | 9.878       | 2.6M   | 1.8M   | 70.11 | [[paper]](https://arxiv.org/abs/1704.04861) [[tf-slim]](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.py) |

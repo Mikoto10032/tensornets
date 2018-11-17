@@ -30,6 +30,10 @@ def tf_later_than(v):
     return LooseVersion(tf.__version__) > LooseVersion(v)
 
 
+def tf_equal_to(v):
+    return tf.__version__ == v
+
+
 if tf_later_than('1.8.0'):
     from tensorflow.python.keras.applications.imagenet_utils \
         import decode_predictions
@@ -128,8 +132,8 @@ def get_weights(scope=None):
 def pad_info(s, symmetry=True):
     pads = [[0, 0], [s // 2, s // 2], [s // 2, s // 2], [0, 0]]
     if not symmetry:
-        pads[1][1] += 1
-        pads[2][1] += 1
+        pads[1][0] -= 1
+        pads[2][0] -= 1
     return pads
 
 
